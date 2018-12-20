@@ -1,0 +1,463 @@
+/*  reset.css  */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,
+legend,input,button,textarea,p,blockquote,th,td {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #fff;
+    color: #555;
+    font-size: 14px;
+    font-family:  Arial, Helvetica, sans-serif;
+}
+td,th,caption {
+    font-size: 14px;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+    font-size: 100%;
+}
+address,caption,em,strong,th {
+    font-style: normal;
+    font-weight: normal;
+}
+a {
+    color: #555;
+    text-decoration: none;
+}
+img {
+    border: none;
+}
+ol,ul,li {
+    list-style: none;
+}
+input,textarea,select,button {
+    font: 14px Verdana, Helvetica, Arial, sans-serif;
+}
+table {
+    border-collapse: collapse;
+}
+.mybox {
+    box-sizing: border-box;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transform-style: preserve-3d;
+  /*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/
+  -webkit-backface-visibility: hidden;
+  /*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/
+  -webkit-overflow-scrolling: touch;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix {
+    *zoom: 1;
+}
+i {
+    font-style: normal;
+}
+/*禁止微信调整字体大小*/
+
+body {
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+    -moz-text-size-adjust: 100% !important;
+}
+/*height自适应*/
+html,
+body {
+    height: 100%;
+    z-index: 1;
+    background-color: transparent;
+    width: 100%;
+}
+.body {
+    height: 100%;
+    z-index: -1;
+    width: 100%;
+    background-color: transparent;
+}
+
+/* 去除当src=''时默认边框*/
+
+img[src=""] {
+    opacity: 0;
+}
+
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+    display: none !important;
+}
+
+
+/* 解决在手机上点击会有阴影块 */
+
+* {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+body {
+    padding-top: constant(safe-area-inset-top);
+    /* 为导航栏+状态栏的高度 88px */
+    padding-left: constant(safe-area-inset-left);
+    /* 如果未竖屏时为0    */
+    padding-right: constant(safe-area-inset-right);
+    /* 如果未竖屏时为0     */
+    padding-bottom: constant(safe-area-inset-bottom);
+    /* 为底下圆弧的高度 34px   */
+}
+
+
+
+@font-face {
+  font-family:"fontTH";
+  src: url('../font/fontTH.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+
+/*Keyframes start*/
+
+@keyframes snow {
+    0% { background-position: 0px 0px, 0px 0px, 0px 0px }
+
+    100% { background-position: 250px 500px, 200px 200px, 150px 150px }
+}
+
+@-moz-keyframes snow {
+    0% { background-position: 0px 0px, 0px 0px, 0px 0px }
+
+    100% { background-position: 250px 500px, 200px 200px, 150px 150px }
+}
+
+
+@-webkit-keyframes snow {
+    0% { background-position: 0px 0px, 0px 0px, 0px 0px }
+
+
+    100% {
+        background-position: 250px 500px, 200px 200px, 150px 150px;
+    }
+}
+
+@-ms-keyframes snow {
+    0% { background-position: 0px 0px, 0px 0px, 0px 0px }
+
+    100% { background-position: 250px 500px, 200px 200px, 150px 150px }
+}
+
+#snow-animation-container {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9;
+	background-image: url('../image/money1.png'), url('../image/money1.png');
+	-webkit-animation: snow 15s linear infinite;
+	-moz-animation: snow 15s linear infinite;
+	-ms-animation: snow 15s linear infinite;
+	animation: snow 15s linear infinite;
+	pointer-events:none;
+}
+/*Keyframes end*/
+
+
+
+/* ------------------- 正文 -------------------- */
+/* common css start */
+.container-box{
+  max-width: 414px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #FFC31E;
+  overflow: hidden;
+}
+
+.wrap-box{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all .5s ease-in-out;
+  overflow-y: scroll;
+}
+
+.wrap-box .content-box .title-box{
+  font-size: 16px;
+  color: #111111;
+  letter-spacing: 0.09px;
+  line-height: 24px;
+  text-align: center;
+  padding: 8px 0;
+  background: #FFC31E;
+}
+.wrap-box .content-box .btn{
+  font-size: 24px;
+  line-height: 28px;
+  color: #111111;
+  letter-spacing: 4.51px;
+  position: relative;
+  display: inline-block;
+  font-family: "fontTH";
+  min-width: 130px;
+  min-height: 36px;
+  line-height: 36px;
+}
+.wrap-box .content-box .btn-big{
+  min-width: 200px;
+  min-height: 44px;
+  line-height: 44px;
+}
+.wrap-box .content-box .btn span{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background: #FF8D3E;
+  border: 1px solid #7665B1;
+  border-radius: 4px;
+}
+
+.wrap-box .content-box .btn::after{
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index:1;
+  background: #F5F5F5;
+  border: 1px solid #7665B1;
+  border-radius: 4px;
+
+}
+
+.hide{
+  top: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
+img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+input:focus{
+  outline: none;
+}
+
+
+/* common css end */
+
+/* --- one page --- */
+.home-module{
+  background: #FFC31E url('../image/home_bg.png') no-repeat bottom center;
+  background-size: 100% auto;
+  position: relative;
+}
+
+.home-module .content-box{
+  position: absolute;
+  left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 10;
+
+}
+
+.home-module .content{
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.wrap-box .info{
+  background: #F9E38D;
+  border: 2px dashed #7665B1;
+  text-align: center;
+  padding: 20px 0 30px;
+}
+
+
+.wrap-box .info p{
+  font-family: "fontTH";
+  font-size: 20px;
+  color: #111111;
+  letter-spacing: 1.66px;
+  line-height: 28px;
+}
+.home-module .info p{
+  margin-bottom: 30px;
+}
+
+.wrap-box .info p span{
+  display: block;
+}
+
+.home-module .footer-text{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  text-align: right;
+  padding: 0 20px 10px 0;
+}
+
+.home-module .footer-text .line{
+  font-size: 9px;
+  letter-spacing: 1.8px;
+  margin-bottom: 3px;
+}
+.home-module .footer-text .text{
+  font-size: 9px;
+  color: #111111;
+  line-height: 14px;
+  letter-spacing: 9.65px;
+  position: relative;
+  left: 10px;
+}
+
+
+/* --- two page --- */
+.gender-module{
+  background: url('../image/gender_bg.png') no-repeat;
+  background-size: 100% 100%;
+}
+.gender-module .content-tit{
+  padding: 75px 40px 65px;
+}
+
+.gender-module .gender-select{
+  width: 100%;
+  position: absolute;
+  left:0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-top: 45px;
+}
+.gender-module .gender-select img{
+  visibility: hidden;
+}
+
+.gender-module .gender-list{
+  overflow: hidden;
+}
+.gender-module .gender-list .gender-item{
+  width: 33.3%;
+  margin-left: 12%;
+  position: relative;
+  float: left;
+}
+
+.gender-module .gender-list .gender-item .inp{
+  position: absolute;
+  left: -1000px;
+}
+.gender-module .gender-list .gender-item .gender-label{
+  display: block;
+}
+
+.gender-module .gender-list .gender-item:last-child{
+  margin-left: 9%;
+}
+
+
+
+
+/* --- three page --- */
+.form-module .content-box .content{
+  padding: 30px 10.6%;
+}
+
+.form-module .content-box .info{
+  padding: 20px 0;
+  margin-bottom: 25px;
+}
+.form-module .content-box .info p{
+  letter-spacing: 4.51px;
+}
+
+.form-module .content-box .calendar-box{
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.form-module .content-box .calendar-box .btn{
+  width: 44%;
+  min-width: 80px;
+}
+
+.form-module .content-box .calendar-box #gregorianCalendarID{
+  float: left;
+}
+
+.form-module .content-box .calendar-box #lunarCalendarID{
+  float: right;
+}
+
+.form-module .content-box .input-box{
+  overflow: hidden;
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #7665B1;
+  padding: 8px;
+  margin-bottom: 60px;
+}
+.form-module .content-box .input-box .label{
+  position: absolute;
+  font-size: 14px;
+  left: 8px;
+  color: #111111;
+  letter-spacing: 1.5px;
+}
+
+.form-module .content-box .input-box .inp{
+  width: 100%;
+  display: block;
+  padding: 0 0 0 70px;
+}
+
+.form-module .content-box .local-box .inp{
+  padding-left: 85px;
+}
+
+.form-module .content-box .submit-btn{
+  text-align: center;
+}
+
+
+
+/* --- four page --- */
+
+
+
+
+/* --- five page --- */

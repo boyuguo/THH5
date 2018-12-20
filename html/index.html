@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="apple-touch-fullscreen" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel='stylesheet' href='../css/nprogress.css'/>
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+  <div class="container-box">
+    <!-- one page -->
+    <div class="wrap-box home-module">
+      <div id="snow-animation-container"></div>
+      <div class="content-box">
+        <div class="title-box">我的2019</div>
+        <div class="content">
+          <div class="info">
+            <p>
+                <span>三十年河东，三十年河西</span>
+                <span>没有一直被抱的“大腿”</span>
+                <span>也没有一直被需要的“保护”</span>
+                <span>明年的你</span>
+                <span>是“大腿”还是需要被“保护”呢？</span>
+            </p>
+            <button class="btn btn-big" id="homeID"><span>点击开始</span></button>
+          </div>
+        </div>
+        <div class="footer-text">
+          <p class="line">| | | | | | | | | | | | | | |</p>
+          <p class="text">请打开声音</p>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- two page -->
+    <div class="wrap-box gender-module hide">
+      <div class="content-box gender-select">
+          <img src="../image/gender_bg1.png" alt="">
+          <ul class="gender-list">
+            <li class="gender-item">
+              <input type="radio" class="inp" name="gender-select" id="gender-girl" data-val="girl">
+              <label for="gender-girl" class="gender-label">
+                <img src="../image/girl.png" alt="">
+              </label>
+            </li>
+            <li class="gender-item">
+              <input type="radio" class="inp" name="gender-select" id="gender-boy" data-val="boy">
+              <label for="gender-boy" class="gender-label">
+                <img src="../image/boy.png" alt="">
+              </label>
+            </li>
+          </ul>
+      </div>
+    </div>
+
+    <!-- three page -->
+    <div class="wrap-box form-module hide">
+      <div class="content-box">
+        <div class="title-box">我的2019</div>
+        <div class="content">
+          <div class="info">
+            <p><span>你的出生日期是:</span></p>
+          </div>
+          <div class="calendar-box">
+            <button class="btn" id="gregorianCalendarID"><span>公历</span></button>
+            <button class="btn" id="lunarCalendarID"><span>农历</span></button>
+          </div>
+          <div class="date-box input-box">
+            <label for="dataVal" class="date-label label">选择日期:</label>
+            <input type="text" id="dataVal" class="inp" />
+          </div>
+
+          <div class="info">
+            <p><span>你呱呱坠地的地方是:</span></p>
+          </div>
+
+          <div class="local-box  input-box">
+            <label for="localVal" class="local-label label">选择出生地:</label>
+            <input type="text" id="localVal" class="inp" />
+          </div>
+
+          <div class="submit-btn">
+            <button class="btn btn-big" id="submitBtn"><span>确认</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- four page -->
+    <div class="wrap-box loading-module hide">
+    </div>
+
+
+    <!-- five page -->
+    <div class="wrap-box result-module hide">
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+
+
+    
+
+
+
+  <div class="progress">
+    <div class="progress-inner" id="progress"></div>
+  </div>
+
+
+  <script src="../js/jquery-3.1.0.min.js"></script>
+  <script src='../js/nprogress.js'></script>
+  <script src='../js/index.js'></script>
+  <script>
+
+  </script>
+  <!-- <iframe src="http://baidu.com/" frameborder="0"></iframe>
+  <iframe src="http://163.com/" frameborder="0"></iframe>
+  <iframe src="http://qq.com/" frameborder="0"></iframe> -->
+</body>
+</html>
