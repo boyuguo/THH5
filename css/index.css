@@ -223,14 +223,14 @@ body {
   position: relative;
   display: inline-block;
   font-family: "fontTH";
-  min-width: 130px;
-  min-height: 36px;
-  line-height: 36px;
+  min-width: 1.6rem;
+  min-height: 0.8rem;
+  line-height: 0.8rem;
 }
 .wrap-box .content-box .btn-big{
-  min-width: 200px;
-  min-height: 44px;
-  line-height: 44px;
+  min-width: 4rem;
+  min-height: 0.92rem;
+  line-height: 0.92rem;
 }
 .wrap-box .content-box .btn span{
   position: absolute;
@@ -242,6 +242,10 @@ body {
   background: #FF8D3E;
   border: 1px solid #7665B1;
   border-radius: 4px;
+}
+
+.wrap-box .content-box .btn-active span{
+  background: #e48041;
 }
 
 .wrap-box .content-box .btn::after{
@@ -296,15 +300,15 @@ input:focus{
 }
 
 .home-module .content{
-  margin: 20px 0;
-  padding: 0 20px;
+  margin: 0.4rem 0;
+  padding: 0 0.4rem;
 }
 
 .wrap-box .info{
   background: #F9E38D;
   border: 2px dashed #7665B1;
   text-align: center;
-  padding: 20px 0 30px;
+  padding: 0.4rem 0 0.6rem;
 }
 
 
@@ -313,10 +317,10 @@ input:focus{
   font-size: 20px;
   color: #111111;
   letter-spacing: 1.66px;
-  line-height: 28px;
+  line-height: 0.6rem;
 }
 .home-module .info p{
-  margin-bottom: 30px;
+  margin-bottom: 0.6rem;
 }
 
 .wrap-box .info p span{
@@ -328,7 +332,7 @@ input:focus{
   right: 0;
   bottom: 0;
   text-align: right;
-  padding: 0 20px 10px 0;
+  padding: 0 0.4rem 0.2rem 0;
 }
 
 .home-module .footer-text .line{
@@ -342,7 +346,7 @@ input:focus{
   line-height: 14px;
   letter-spacing: 9.65px;
   position: relative;
-  left: 10px;
+  left: 0.2rem;
 }
 
 
@@ -351,9 +355,6 @@ input:focus{
   background: url('../image/gender_bg.png') no-repeat;
   background-size: 100% 100%;
 }
-.gender-module .content-tit{
-  padding: 75px 40px 65px;
-}
 
 .gender-module .gender-select{
   width: 100%;
@@ -361,7 +362,7 @@ input:focus{
   left:0;
   top: 50%;
   transform: translateY(-50%);
-  padding-top: 45px;
+  padding-top: 0.92rem;
 }
 .gender-module .gender-select img{
   visibility: hidden;
@@ -394,12 +395,12 @@ input:focus{
 
 /* --- three page --- */
 .form-module .content-box .content{
-  padding: 30px 10.6%;
+  padding: 0.6rem 10.6%;
 }
 
 .form-module .content-box .info{
-  padding: 20px 0;
-  margin-bottom: 25px;
+  padding: 0.4rem 0;
+  margin-bottom: 0.5rem;
 }
 .form-module .content-box .info p{
   letter-spacing: 4.51px;
@@ -407,12 +408,12 @@ input:focus{
 
 .form-module .content-box .calendar-box{
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 0.4rem;
 }
 
 .form-module .content-box .calendar-box .btn{
   width: 44%;
-  min-width: 80px;
+  min-width: 1.6rem;
 }
 
 .form-module .content-box .calendar-box #gregorianCalendarID{
@@ -429,7 +430,7 @@ input:focus{
   background: #FFFFFF;
   border: 1px solid #7665B1;
   padding: 8px;
-  margin-bottom: 60px;
+  margin-bottom: 1.2rem;
 }
 .form-module .content-box .input-box .label{
   position: absolute;
@@ -442,7 +443,7 @@ input:focus{
 .form-module .content-box .input-box .inp{
   width: 100%;
   display: block;
-  padding: 0 0 0 70px;
+  padding: 0 0 0 75px;
 }
 
 .form-module .content-box .local-box .inp{

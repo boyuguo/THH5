@@ -9,6 +9,8 @@
   <title>Document</title>
   <link rel='stylesheet' href='../css/nprogress.css'/>
   <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/lCalendar.css">
+  <link rel="stylesheet" href="../css/address.css">
 </head>
 <body>
 
@@ -45,15 +47,15 @@
           <img src="../image/gender_bg1.png" alt="">
           <ul class="gender-list">
             <li class="gender-item">
-              <input type="radio" class="inp" name="gender-select" id="gender-girl" data-val="girl">
-              <label for="gender-girl" class="gender-label">
-                <img src="../image/girl.png" alt="">
-              </label>
-            </li>
-            <li class="gender-item">
               <input type="radio" class="inp" name="gender-select" id="gender-boy" data-val="boy">
               <label for="gender-boy" class="gender-label">
                 <img src="../image/boy.png" alt="">
+              </label>
+            </li>
+            <li class="gender-item">
+              <input type="radio" class="inp" name="gender-select" id="gender-girl" data-val="girl">
+              <label for="gender-girl" class="gender-label">
+                <img src="../image/girl.png" alt="">
               </label>
             </li>
           </ul>
@@ -69,8 +71,8 @@
             <p><span>你的出生日期是:</span></p>
           </div>
           <div class="calendar-box">
-            <button class="btn" id="gregorianCalendarID"><span>公历</span></button>
-            <button class="btn" id="lunarCalendarID"><span>农历</span></button>
+            <button class="btn" id="gregorianCalendarID" data-calendar-type="0"><span>公历</span></button>
+            <button class="btn" id="lunarCalendarID" data-calendar-type="1"><span>农历</span></button>
           </div>
           <div class="date-box input-box">
             <label for="dataVal" class="date-label label">选择日期:</label>
@@ -113,7 +115,7 @@
 
 
 
-    
+
 
 
 
@@ -123,13 +125,14 @@
 
 
   <script src="../js/jquery-3.1.0.min.js"></script>
-  <script src='../js/nprogress.js'></script>
-  <script src='../js/index.js'></script>
+  <script src="../js/flexible.js"></script> <!-- 自适应 -->
+  <script src='../js/nprogress.js'></script> <!-- 进度条 -->
+  <script src="../js/lCalendar.js"></script> <!-- 日历插件 -->
+  <script src="../js/citys.js"></script> <!-- 城市JSON -->
+  <script src="../js/address.js"></script> <!-- 地址插件 -->
+  <script src='../js/index.js'></script> <!-- index.js -->
   <script>
 
   </script>
-  <!-- <iframe src="http://baidu.com/" frameborder="0"></iframe>
-  <iframe src="http://163.com/" frameborder="0"></iframe>
-  <iframe src="http://qq.com/" frameborder="0"></iframe> -->
 </body>
 </html>
