@@ -167,14 +167,14 @@ body {
     100% { background-position: 250px 500px, 200px 200px, 150px 150px }
 }
 
-#snow-animation-container {
+.snow-animation-container {
 	position: absolute;
 	left: 0;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	z-index: 9;
-	background-image: url('../image/money1.png'), url('../image/money1.png');
+	background-image: url('../image/money_1.png'), url('../image/money_1.png');
 	-webkit-animation: snow 15s linear infinite;
 	-moz-animation: snow 15s linear infinite;
 	-ms-animation: snow 15s linear infinite;
@@ -462,3 +462,96 @@ input:focus{
 
 
 /* --- five page --- */
+.result-module .content-box{
+  width: 100%;
+  height: 100%;
+}
+.result-module .content-box .content{
+  height: 94%;
+}
+.result-module .content .result-top{
+  padding-top: 0.4rem;
+  width: 100%;
+  height: 48%;
+  background: url('../image/result_girl_1.png') right bottom no-repeat;
+  background-size: 100% auto;
+  position: relative;
+}
+
+.result-module .content .result-top .result-top-content{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+
+.result-module .content .result-top .title-box{
+  position: relative;
+  padding: 0 0.6rem;
+}
+.result-module .content .result-top .title-box .user-icon{
+  position: absolute;
+  left: 0.6rem;
+  top: 0;
+  width: 45px;
+  height: 45px;
+}
+
+.result-module .content .result-top .title-box .title{
+  width: 100%;
+  padding-left: 55px;
+  text-align: left;
+}
+
+.result-module .content .result-top .title-box .title b{
+  display: block;
+  font-size: 24px;
+  line-height: 0.6rem;
+  color: #111111;
+  letter-spacing: 0.12px;
+  font-family: "fontTH";
+}
+.result-module .content .result-top .title-box .title span{
+  font-size: 10px;
+  line-height: 14px;
+  color: #111111;
+  letter-spacing: 0.05px;
+  display: block;
+}
+
+.result-module .content .result-bottom{
+  width: 100%;
+  height: 52%;
+}
+
+.result-module .content .result-bottom .result-description-list{
+  padding: 0.3rem 0.6rem 0;
+}
+
+.result-module .content .result-bottom .result-description-item{
+  position: relative;
+  margin-bottom: 0.4rem;
+}
+
+.result-module .content .result-bottom .result-description-item h3{
+  font-size: 36px;
+  line-height: 0.8rem;
+  color: #111111;
+  letter-spacing: 0.51px;
+  font-family: "fontTH";
+  padding-right: 5px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.result-module .content .result-bottom .result-description-item p{
+  padding-left: 95px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #333333;
+  letter-spacing: 0.06px;
+}
