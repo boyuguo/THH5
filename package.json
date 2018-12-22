@@ -1,0 +1,24 @@
+{
+  "name": "tianhe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "proxy-conf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boyuguo/THH5.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boyuguo/THH5/issues"
+  },
+  "homepage": "https://github.com/boyuguo/THH5#readme",
+  "dependencies": {
+    "http": "0.0.0"
+  }
+}

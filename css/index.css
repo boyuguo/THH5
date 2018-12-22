@@ -181,6 +181,11 @@ body {
 	animation: snow 15s linear infinite;
 	pointer-events:none;
 }
+
+.none{
+  display: none;
+}
+
 /*Keyframes end*/
 
 
@@ -478,6 +483,18 @@ input:focus{
   background-size: 100% auto;
   position: relative;
 }
+.result-module .content .boyBg{
+  background: url('../image/result_boy_1.png') right bottom no-repeat;
+  background-size: 100% auto;
+}
+.result-module .content .boyBgErr{
+  background: url('../image/result_boy.gif') right bottom no-repeat;
+  background-size: 100% auto;
+}
+.result-module .content .girlBgErr{
+  background: url('../image/result_girl.gif') right bottom no-repeat;
+  background-size: 100% auto;
+}
 
 .result-module .content .result-top .result-top-content{
   position: absolute;
@@ -523,6 +540,12 @@ input:focus{
   display: block;
 }
 
+.result-module .content .result-top .chartsContCanvas{
+  width: 60%;
+  height: 220px;
+  margin-top: 0.2rem;
+}
+
 .result-module .content .result-bottom{
   width: 100%;
   height: 52%;
@@ -556,6 +579,7 @@ input:focus{
   color: #333333;
   letter-spacing: 0.06px;
   position: relative;
+  min-height: 0.84rem;
 }
 
 .result-module .content .result-bottom .result-description-item p::before{
