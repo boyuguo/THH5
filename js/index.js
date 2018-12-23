@@ -5,6 +5,12 @@
 结果页状态: 0-保护 1-大腿
  */
 $(function(){
+  // 移动端不支持音频/视频的自动播放
+  // see https://stackoverflow.com/questions/13266474/autoplay-audio-on-mobile-safari
+  window.addEventListener('touchstart', function () {
+    document.getElementById('music').play();
+  })
+
   //  点击homeID切换下一页
   $('#homeID').on('click',function(){
     $('.container-box').find('.wrap-box').addClass('hide');
