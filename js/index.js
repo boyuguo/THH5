@@ -47,7 +47,7 @@ $(function(){
       });
 
   // 点击提交按钮
-  $('#submitBtn').on('click',function(){
+  $('#submitBtn').on('click', function () {
     var dataVal = $('#dataVal').val()
     var localVal = $('#localVal').val();
 
@@ -55,6 +55,8 @@ $(function(){
       typeof dataVal === 'string' && dataVal !== '' &&
       typeof localVal === 'string' && localVal !== ''
     ) {
+      document.getElementById('submitBtn').disabled = true;
+
       var strs = ["/","/"," ",":",""];
       dataVal = dataVal.replace(/\D/g,function(){return strs.shift()});
 
@@ -64,6 +66,7 @@ $(function(){
         date: dataVal,
         addr: localVal
       };
+
       $.ajax({
         url : '/tianhe/public/index.php/api/guard',
         data: data,
@@ -78,6 +81,9 @@ $(function(){
           console.log(dt,'this is dt');
           resultDataProcessing();
         }
+      })
+      .always(() => {
+        document.getElementById('submitBtn').disabled = false;
       })
     }
   })
