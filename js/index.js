@@ -48,38 +48,38 @@ $(function(){
 
   // 点击提交按钮
   $('#submitBtn').on('click',function(){
-    var dataVal = $('#dataVal').val(),
-        localVal = $('#localVal').val();
-    console.log(gender,calendarType,dataVal,localVal,'this is val');
-    var strs = ["/","/"," ",":",""];
-    dataVal = dataVal.replace(/\D/g,function(){return strs.shift()});
+    var dataVal = $('#dataVal').val()
+    var localVal = $('#localVal').val();
 
+    if (
+      typeof dataVal === 'string' && dataVal !== '' &&
+      typeof localVal === 'string' && localVal !== ''
+    ) {
+      var strs = ["/","/"," ",":",""];
+      dataVal = dataVal.replace(/\D/g,function(){return strs.shift()});
 
-    var data = {
-      sex: gender,
-      data_type: calendarType,
-      date: dataVal,
-      addr: localVal
-    };
-    $.ajax({
-          url : '/tianhe/public/index.php/api/guard'
-          ,data: data
-          ,dataType: 'JSON'
-          ,type: 'post'
-          ,success: (dt) => {
-            if ( dt.code == 0 ) {
-              $('.container-box').find('.wrap-box').addClass('hide');
-              $('.result-module').removeClass('hide');
-              result_json = dt;
-            }
-              console.log(dt,'this is dt');
-              resultDataProcessing();
+      var data = {
+        sex: gender,
+        data_type: calendarType,
+        date: dataVal,
+        addr: localVal
+      };
+      $.ajax({
+        url : '/tianhe/public/index.php/api/guard',
+        data: data,
+        dataType: 'JSON',
+        type: 'post',
+        success: (dt) => {
+          if ( dt.code == 0 ) {
+            $('.container-box').find('.wrap-box').addClass('hide');
+            $('.result-module').removeClass('hide');
+            result_json = dt;
           }
+          console.log(dt,'this is dt');
+          resultDataProcessing();
+        }
       })
-
-
-
-
+    }
   })
   // <div class="snow-animation-container"></div>
   // <div class="result-top-content">
