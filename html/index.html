@@ -38,7 +38,7 @@
                 <span>100%</span>
               </div>
             </div>
-            <button class="btn btn-big" id="homeID"><span>点击开始</span></button>
+            <button class="btn btn-big none" id="homeID"><span>点击开始</span></button>
           </div>
         </div>
         <div class="footer-text">
@@ -116,7 +116,7 @@
 
 
     <!-- four page -->
-    <div class="wrap-box loading-module hide">
+    <div class="wrap-box loading-module">
       <div class="content-box">
         <div class="title-box">我的2019</div>
         <div class="content">
@@ -183,7 +183,29 @@
   <script src="../js/address.js"></script> <!-- 地址插件 -->
   <script src='../js/index.js'></script> <!-- index.js -->
   <script>
-
+    var $progress = $('.progressbar span')
+    var prg = 0
+    var timer = 0
+    progress(80, 10)
+    window.onload = () => {
+      progress(100, 10, () => {
+        $('.end span').addClass('loading-end');
+        $('#homeID').removeClass('none');
+      })
+    }
+    function progress (dist, delay, callback) {
+      window.clearInterval(timer)
+      timer = window.setInterval(() => {
+        if (prg >= dist) {
+          window.clearInterval(timer)
+          prg = dist
+          callback && callback()
+        } else {
+          prg++
+        }
+        $progress.css({"width": prg + "%"})
+      }, delay)
+    }
   </script>
 </body>
 </html>
