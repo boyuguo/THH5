@@ -4,6 +4,33 @@
 时间: 2018/09/10 10:20
 结果页状态: 0-保护 1-大腿
  */
+// 进度条功能
+// 进度条方法
+function progress (dist, delay, callback) {
+  window.clearInterval(timer)
+  timer = window.setInterval(() => {
+    if (prg >= dist) {
+      window.clearInterval(timer)
+      prg = dist
+      callback && callback()
+    } else {
+      prg++
+    }
+    $progress.css({"width": prg + "%"})
+  }, delay)
+}
+
+var $progress = $('.progressbar span')
+var prg = 0
+var timer = 0
+progress(80, 10)
+window.onload = () => {
+  progress(100, 10, () => {
+    $('.end span').addClass('loading-end');
+    $('#homeID').removeClass('none');
+  })
+}
+
 $(function(){
   // 移动端不支持音频/视频的自动播放
   // see https://stackoverflow.com/questions/13266474/autoplay-audio-on-mobile-safari
@@ -92,14 +119,26 @@ $(function(){
         type: 'post',
         beforeSend:function(){
             $('.container-box').find('.wrap-box').addClass('hide');
-            $('.loading-module').removeClass('hide');  
-                    },
+            $('.loading-module').removeClass('hide');
+            // 设置 进度条到60%
+            prg = 20;
+            progress(50, 5)
+        },
+        complete: function(){
+          // 设置 进度条到80%
+          progress(80, 5)
+        },
         success: (dt) => {
           if ( dt.code == 0 ) {
             $('.container-box').find('.wrap-box').addClass('hide');
             $('.result-module').removeClass('hide');
             result_json = dt;
           }
+          // 进度条加载完成
+          progress(100, 5, () => {
+            $('.end span').addClass('loading-end');
+            $('#homeID').removeClass('none');
+          })
           console.log(dt,'this is dt');
           resultDataProcessing();
         }
@@ -270,21 +309,5 @@ $(function(){
     };
 
     myChart.setOption(option);
-
-
-
-
   }
-
-
-
-
-
-
-
-
-
-
-
-
 })

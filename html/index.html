@@ -182,30 +182,5 @@
   <script src="../js/citys.js"></script> <!-- 城市JSON -->
   <script src="../js/address.js"></script> <!-- 地址插件 -->
   <script src='../js/index.js'></script> <!-- index.js -->
-  <script>
-    var $progress = $('.progressbar span')
-    var prg = 0
-    var timer = 0
-    progress(80, 10)
-    window.onload = () => {
-      progress(100, 10, () => {
-        $('.end span').addClass('loading-end');
-        $('#homeID').removeClass('none');
-      })
-    }
-    function progress (dist, delay, callback) {
-      window.clearInterval(timer)
-      timer = window.setInterval(() => {
-        if (prg >= dist) {
-          window.clearInterval(timer)
-          prg = dist
-          callback && callback()
-        } else {
-          prg++
-        }
-        $progress.css({"width": prg + "%"})
-      }, delay)
-    }
-  </script>
 </body>
 </html>
