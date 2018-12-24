@@ -627,8 +627,8 @@ input:focus{
 }
 
 .result-module .content .result-top .chartsContCanvas{
-  width: 60%;
-  height: 220px;
+  width: 35%;
+  height: 140px;
   margin-top: 0.2rem;
 }
 

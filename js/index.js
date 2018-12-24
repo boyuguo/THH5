@@ -90,10 +90,13 @@ $(function(){
     $('#date-err').removeClass('show-err');
     $('#local-err').removeClass('show-err');
 
-    if ( dataVal == '' ) {
+    if ( dataVal == '' && localVal == '' ) {
       $('#date-err').addClass('show-err');
-    }else if ( localVal == '' ) {
       $('#local-err').addClass('show-err');
+    } else if ( localVal == '' ) {
+      $('#local-err').addClass('show-err');
+    } else if( dataVal == '' ) {
+      $('#date-err').addClass('show-err');
     }
 
     if (
@@ -117,16 +120,18 @@ $(function(){
         data: data,
         dataType: 'JSON',
         type: 'post',
-        beforeSend:function(){
+        beforeSend: function(){
             $('.container-box').find('.wrap-box').addClass('hide');
             $('.loading-module').removeClass('hide');
             // 设置 进度条到60%
             prg = 20;
-            progress(50, 5)
+            progress(50, 5);
+            console.log('this is beforeSend');
         },
         complete: function(){
           // 设置 进度条到80%
           progress(80, 5)
+          console.log('this is complete');
         },
         success: (dt) => {
           if ( dt.code == 0 ) {
@@ -148,53 +153,46 @@ $(function(){
       })
     }
   })
-  // <div class="snow-animation-container"></div>
-  // <div class="result-top-content">
-  //   <div class="title-box">
-  //     <img src="../image/girl.png" alt="" class="user-icon">
-  //     <p class="title">
-  //       <b>2019,我是“大腿”</b>
-  //       <span>炫富不是我的错，我是大腿谁抱我？</span>
-  //     </p>
-  //   </div>
-  // </div>
+
 
   //第五个页面数据处理
   function resultDataProcessing(){
 
     var resultData = result_json.data,
-        analysisType = ['爱情','财运','事业'],
+        analysisType = '',
         resultBottomHtml = '<ul class="result-description-list">';
     for ( var i in resultData ) {
-      var index = 0;
       if ( i == 'marriage' ){
-        index = 0;
+        analysisType = '爱情';
       } else if ( i == 'wealth' ) {
-        index = 1;
+        analysisType = '财运';
       } else if ( i == 'cause' ) {
-        index = 2;
+        analysisType = '事业';
       }
       var cur = resultData[i];
       console.log(cur,' this is cur');
-      resultBottomHtml += '<li class="result-description-item">'
-                       + '<h3>'+ analysisType[index] +'</h3>'
-                       + '<p>'+ cur.nianjieshi[1] +'</p>'
-                       + '</li>'
+      if (i !== 'wealth_status' ) {
+        resultBottomHtml += '<li class="result-description-item">'
+                         + '<h3>'+ analysisType +'</h3>'
+                         + '<p>'+ cur.nianjieshi[1] +'</p>'
+                         + '</li>'
+      }
     }
 
     resultBottomHtml += '</ul>' ;
 
     $('.result-bottom').html(resultBottomHtml);
 
-    result_json.data.wealthStatus = 0;
-    var titleVal = result_json.data.wealthStatus == 1 ? '2019,我是“大腿”' : '2019，我求“保护”',
-        textVal = result_json.data.wealthStatus == 1 ? '炫富不是我的错，我是大腿谁抱我？' : '可怜兮兮又一年，我很受伤谁护我？',
-        resultTopClass = '';
-        if( result_json.data.wealthStatus == 1 && gender == 1 ){
+    var status = result_json.data.wealth_status;
+    var titleVal = status == 1 ? '2019,我是“大腿”' : '2019，我求“保护”',
+        textVal = status == 1 ? '炫富不是我的错，我是大腿谁抱我？' : '可怜兮兮又一年，我很受伤谁护我？',
+        resultTopClass = '', // 结果页背景图的状态类
+        snowClass = '';  // 是否下money
+        if( status == 1 && gender == 1 ){
           resultTopClass = 'boyBg';    // 抱大腿男
-        }else if(  result_json.data.wealthStatus == 0 && gender == 1  ){
+        }else if(  status == 0 && gender == 1  ){
           resultTopClass = 'boyBgErr'; // 受保护男
-        }else if(  result_json.data.wealthStatus == 0 && gender == 0  ){
+        }else if(  status == 0 && gender == 0  ){
           resultTopClass = 'girlBgErr'; // 受保护女
         }
 
