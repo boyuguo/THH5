@@ -8,7 +8,7 @@ $(function(){
   // 移动端不支持音频/视频的自动播放
   // see https://stackoverflow.com/questions/13266474/autoplay-audio-on-mobile-safari
   window.addEventListener('touchstart', function () {
-    document.getElementById('music').play();
+  //  document.getElementById('music').play();
   })
 
   //  点击homeID切换下一页
@@ -29,10 +29,14 @@ $(function(){
 
   // 时间插件
   var calendardatetime = new lCalendar();
-			calendardatetime.init({
-				'trigger': '#dataVal',
-				'type': 'datetime'
-			});
+      calendardatetime.init({
+        'trigger': '#dataVal',
+        'type': 'datetime'
+      });
+  // function setTimeEvent(){
+  //
+  // }
+  // setTimeEvent();
 
   // 点击切换日历类型
   $('.calendar-box').on('click','.btn',function(){
@@ -56,6 +60,14 @@ $(function(){
   $('#submitBtn').on('click', function () {
     var dataVal = $('#dataVal').val()
     var localVal = $('#localVal').val();
+    $('#date-err').removeClass('show-err');
+    $('#local-err').removeClass('show-err');
+
+    if ( dataVal == '' ) {
+      $('#date-err').addClass('show-err');
+    }else if ( localVal == '' ) {
+      $('#local-err').addClass('show-err');
+    }
 
     if (
       typeof dataVal === 'string' && dataVal !== '' &&

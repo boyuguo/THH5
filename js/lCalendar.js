@@ -17,7 +17,6 @@ window.lCalendar = (function() {
 			this.trigger = document.querySelector(params.trigger);
 			if (this.trigger.getAttribute("data-lcalendar") != null) {
 				var arr = this.trigger.getAttribute("data-lcalendar").split(',');
-				console.log(arr,'this is arr');
 				var minArr = arr[0].split('-');
 				this.minY = ~~minArr[0];
 				this.minM = ~~minArr[1];
@@ -477,7 +476,6 @@ window.lCalendar = (function() {
 				var d = 0;
 				var stopGear = false;
 				var passY = _self.maxY - _self.minY + 1;
-				console.log(passY,target.id,'this is passY');
 				clearInterval(target["int_" + target.id]);
 				target["int_" + target.id] = setInterval(function() {
 					var pos = target["pos_" + target.id];
