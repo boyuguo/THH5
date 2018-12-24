@@ -203,9 +203,9 @@ $( function () {
           resultTopClass = 'girlBgErr'; // 受保护女
         }
 
-        if( result_json.data.wealthStatus == 1 ){
+        if( status == 1 ){
           snowClass = '';
-        }else if( result_json.data.wealthStatus == 0 ){
+        }else if( status == 0 ){
           snowClass = 'none';
         }
 
