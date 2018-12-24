@@ -90,6 +90,10 @@ $(function(){
         data: data,
         dataType: 'JSON',
         type: 'post',
+        beforeSend:function(){
+            $('.container-box').find('.wrap-box').addClass('hide');
+            $('.loading-module').removeClass('hide');  
+                    },
         success: (dt) => {
           if ( dt.code == 0 ) {
             $('.container-box').find('.wrap-box').addClass('hide');
