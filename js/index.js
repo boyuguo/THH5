@@ -20,10 +20,10 @@ function progress (dist, delay, callback) {
   }, delay)
 }
 
-var $progress = $('.progressbar span')
-var prg = 0
-var timer = 0
-progress(80, 10)
+var $progress = $('.progressbar span'),
+    prg = 0;
+    timer = 0;
+progress(80, 10);
 window.onload = () => {
   progress(100, 10, () => {
     $('.end span').addClass('loading-end');
@@ -31,15 +31,15 @@ window.onload = () => {
   })
 }
 
-$(function(){
+$( function () {
   // 移动端不支持音频/视频的自动播放
   // see https://stackoverflow.com/questions/13266474/autoplay-audio-on-mobile-safari
   window.addEventListener('touchstart', function () {
-  //  document.getElementById('music').play();
+   document.getElementById('music').play();
   })
 
   //  点击homeID切换下一页
-  $('#homeID').on('click',function(){
+  $('#homeID').on('click', function () {
     $('.container-box').find('.wrap-box').addClass('hide');
     $('.gender-module').removeClass('hide');
   })
@@ -47,7 +47,7 @@ $(function(){
  //     性别        日历类型        时间        地区
   var gender = '',calendarType = 1,dataVal = '',localVal = '',result_json = {};
   // 选择性别切换下一页
-  $('.gender-list').on('click','.gender-item',function(){
+  $('.gender-list').on('click', '.gender-item', function () {
     var selectVal = $(this).find('.inp').data('val');
     gender = selectVal;
     $('.container-box').find('.wrap-box').addClass('hide');
@@ -60,10 +60,6 @@ $(function(){
         'trigger': '#dataVal',
         'type': 'datetime'
       });
-  // function setTimeEvent(){
-  //
-  // }
-  // setTimeEvent();
 
   // 点击切换日历类型
   $('.calendar-box').on('click','.btn',function(){
@@ -85,6 +81,7 @@ $(function(){
 
   // 点击提交按钮
   $('#submitBtn').on('click', function () {
+    $('.end span').removeClass('loading-end');
     var dataVal = $('#dataVal').val()
     var localVal = $('#localVal').val();
     $('#date-err').removeClass('show-err');
@@ -105,8 +102,14 @@ $(function(){
     ) {
       document.getElementById('submitBtn').disabled = true;
 
+      if ( dataVal.indexOf('时间不确定') > -1 ) {
+        dataVal = dataVal.replace('时间不确定','12时0分');
+      }
+
+
       var strs = ["/","/"," ",":",""];
       dataVal = dataVal.replace(/\D/g,function(){return strs.shift()});
+
 
       var data = {
         sex: gender,
@@ -120,32 +123,30 @@ $(function(){
         data: data,
         dataType: 'JSON',
         type: 'post',
-        beforeSend: function(){
+        beforeSend: function () {
             $('.container-box').find('.wrap-box').addClass('hide');
             $('.loading-module').removeClass('hide');
             // 设置 进度条到60%
-            prg = 20;
-            progress(50, 5);
+            prg = 10;
+            progress(94, 20);
             console.log('this is beforeSend');
         },
-        complete: function(){
-          // 设置 进度条到80%
-          progress(80, 5)
-          console.log('this is complete');
-        },
         success: (dt) => {
-          if ( dt.code == 0 ) {
-            $('.container-box').find('.wrap-box').addClass('hide');
-            $('.result-module').removeClass('hide');
-            result_json = dt;
-          }
           // 进度条加载完成
           progress(100, 5, () => {
             $('.end span').addClass('loading-end');
             $('#homeID').removeClass('none');
+
+            if ( dt.code == 0 ) {
+              $('.container-box').find('.wrap-box').addClass('hide');
+              $('.result-module').removeClass('hide');
+              result_json = dt;
+            }
+
+            console.log(dt,'this is dt');
+            resultDataProcessing();
           })
-          console.log(dt,'this is dt');
-          resultDataProcessing();
+
         }
       })
       .always(() => {
@@ -156,12 +157,15 @@ $(function(){
 
 
   //第五个页面数据处理
-  function resultDataProcessing(){
-
+  function resultDataProcessing () {
+    // 测试结果描述
     var resultData = result_json.data,
         analysisType = '',
+        arr2018 = [],
+        arr2019 = [],
         resultBottomHtml = '<ul class="result-description-list">';
-    for ( var i in resultData ) {
+        console.log(resultData,' this is resultData');
+    for ( let i in resultData ) {
       if ( i == 'marriage' ){
         analysisType = '爱情';
       } else if ( i == 'wealth' ) {
@@ -170,19 +174,22 @@ $(function(){
         analysisType = '事业';
       }
       var cur = resultData[i];
-      console.log(cur,' this is cur');
+      console.log(resultData, cur, i,' this is resultData');
       if (i !== 'wealth_status' ) {
+        arr2018.push( resultData[i].nianjixiongzhi[0]+5 );
+        arr2019.push( resultData[i].nianjixiongzhi[1]+5 );
+
         resultBottomHtml += '<li class="result-description-item">'
                          + '<h3>'+ analysisType +'</h3>'
-                         + '<p>'+ cur.nianjieshi[1] +'</p>'
+                         + '<p><span>'+ cur.nianjieshi[1] +'</span></p>'
                          + '</li>'
       }
     }
-
-    resultBottomHtml += '</ul>' ;
-
+    resultBottomHtml += '</ul><div class="company-info"><p class="text"><b>天合·易策局开发</b><span>更多惊喜请关注公众号: 易策局</span></p></div>' ;
     $('.result-bottom').html(resultBottomHtml);
 
+
+    // 测试结果的状态
     var status = result_json.data.wealth_status;
     var titleVal = status == 1 ? '2019,我是“大腿”' : '2019，我求“保护”',
         textVal = status == 1 ? '炫富不是我的错，我是大腿谁抱我？' : '可怜兮兮又一年，我很受伤谁护我？',
@@ -202,11 +209,10 @@ $(function(){
           snowClass = 'none';
         }
 
-
     resultTopHtml = '<div class="snow-animation-container '+snowClass+' "></div>'
                   + '<div class="result-top-content">'
                   + '<div class="title-box">'
-                  + '<img src="../image/girl.png" alt="" class="user-icon">'
+                  + '<img src="../image/logo.png" alt="" class="user-icon">'
                   + '<p class="title">'
                   + '<b>'+ titleVal +'</b>'
                   + '<span>'+ textVal +'</span>'
@@ -214,11 +220,11 @@ $(function(){
                   + '</div>'
                   + '<div class="chartsContCanvas" id="chartsContCanvas"></div>'
                   + '</div>'
+    $('.result-top').html(resultTopHtml).addClass(resultTopClass);
 
 
-
-
-                  $('.result-top').html(resultTopHtml).addClass(resultTopClass);
+    // 雷达图数据处理
+    console.log(arr2018,arr2019);
 
     var myChart = echarts.init(document.getElementById('chartsContCanvas'));
     var lineStyle = {
@@ -229,7 +235,7 @@ $(function(){
     };
     var optionData = [
     	{
-    		value: [2,2,2],
+    		value: arr2018,
     		name: '2018',
     		itemStyle: {
                     normal: {
@@ -237,8 +243,8 @@ $(function(){
                     }
                 },
     	},
-    	{
-    		value: [9,9,9],
+      {
+    		value: arr2019,
     		name: '2019',
     		itemStyle: {
                     normal: {
@@ -246,16 +252,18 @@ $(function(){
                     }
                 },
     	}
+
     ];
 
     var option = {
         legend: {
-            bottom: 5,
-            data: ['2018', '2018'],
-            itemGap: 20,
+            icon: 'circle',
+            bottom: 0,
+            data: ['2018', '2019'],
+            itemGap: 10,
             textStyle: {
                 color: '#111',
-                fontSize: 14
+                fontSize: 12
             }
         },
         radar: {
@@ -265,6 +273,7 @@ $(function(){
                 {name: '事业', max: 9}
             ],
             shape: 'circle',
+            radius: '60%',
             splitNumber: 9,
             name: {
                 textStyle: {
@@ -273,15 +282,14 @@ $(function(){
             },
             splitLine: {
                 lineStyle: {
-                    color: [
-                        'rgba(0, 0, 0, 0.1)', 'rgba(0, 0, 0, 0.2)',
-                        'rgba(0, 0, 0, 0.4)', 'rgba(0, 0, 0, 0.6)',
-                        'rgba(0, 0, 0, 0.8)', 'rgba(0, 0, 0, 1)'
-                    ].reverse()
+                    color: 'rgba(0, 0, 0, 1)'
                 }
             },
             splitArea: {
-                show: false
+                show: true,
+                areaStyle: {
+                    color: '#fff'
+                }
             },
             axisLine: {
                 lineStyle: {
@@ -297,7 +305,7 @@ $(function(){
                 symbol: 'none',
                 areaStyle: {
                     normal: {
-                        opacity: 0.9
+                        opacity: 0.7
                     }
                 }
 
