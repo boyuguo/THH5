@@ -211,7 +211,11 @@ body {
   overflow-y: scroll;
 }
 
-.wrap-box .content-box .title-box{
+.content-box{
+  padding-top: 0.5rem;
+}
+
+/* .wrap-box .content-box .title-box{
   font-size: 16px;
   color: #111111;
   letter-spacing: 0.09px;
@@ -219,7 +223,7 @@ body {
   text-align: center;
   padding: 8px 0;
   background: #FFC31E;
-}
+} */
 .wrap-box .content-box .btn{
   font-size: 24px;
   line-height: 28px;
@@ -245,13 +249,14 @@ body {
   right: 0;
   bottom: 0;
   z-index: 2;
-  background: #FF8D3E;
+  background: #FF9F5B;
   border: 1px solid #7665B1;
   border-radius: 4px;
 }
 
 .wrap-box .content-box .btn-active span{
   background: #ED690E;
+  height: 42px;
 }
 
 .wrap-box .content-box .btn::after{
@@ -267,6 +272,9 @@ body {
   border: 1px solid #7665B1;
   border-radius: 4px;
 
+}
+.wrap-box .content-box .btn-active:after{
+  display: none;
 }
 
 .hide{
@@ -336,7 +344,7 @@ input:focus{
   background-size: 0.4rem 0.4rem ;
   font-size: 0;
   text-align: center;
-  line-height: 0.7rem;
+  line-height: 0.6rem;
   color: #fff;
 }
 .loading-box .end .loading-end{
@@ -381,7 +389,7 @@ input:focus{
   font-size: 20px;
   color: #111111;
   letter-spacing: 1.66px;
-  line-height: 0.4rem;
+  line-height: 0.6rem;
   padding: 0 0.1rem;
 }
 .home-module .info p{
@@ -419,6 +427,14 @@ input:focus{
 .gender-module{
   background: url('../image/gender_bg.png') no-repeat center center;
   background-size: 100% auto;
+}
+
+.gender-module .content-info .content{
+  padding: 1.5rem 0.4rem 0;
+}
+
+.gender-module .content-info .content .info{
+  padding: 0.3rem 0;
 }
 
 .gender-module .gender-select{
@@ -473,7 +489,7 @@ input:focus{
 }
 
 .form-module .content-box .calendar-box{
-  overflow: hidden;
+  height: 0.8rem;
   margin-bottom: 0.4rem;
 }
 
@@ -499,6 +515,7 @@ input:focus{
   background: #FFFFFF;
   border: 1px solid #7665B1;
   padding: 8px;
+  height: 38px;
 }
 .form-module .content-box .input-box .err{
   width: 100%;
@@ -523,6 +540,7 @@ input:focus{
   display: block;
   padding: 0 0 0 75px;
   border: none;
+  line-height: 20px;
 }
 
 .form-module .content-box .local-box .inp{

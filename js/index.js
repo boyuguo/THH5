@@ -113,7 +113,6 @@ $( function () {
         dataVal = dataVal.replace('分不确定','0分');
       }
 
-      console.log(dataVal,'this is dataVal1');
 
       var strs = ["/","/"," ",":",""];
       dataVal = dataVal.replace(/\D/g,function(){return strs.shift()});
@@ -282,7 +281,7 @@ $( function () {
                 {name: '事业', max: 9}
             ],
             shape: 'circle',
-            radius: '70%',
+            radius: '65%',
             splitNumber: 9,
             name: {
                 textStyle: {
@@ -325,4 +324,7 @@ $( function () {
 
     myChart.setOption(option);
   }
+
+
+
 })

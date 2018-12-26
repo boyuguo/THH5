@@ -64,7 +64,7 @@
 .datetime_roll{
 	position: relative;
 }
-.datetime_roll:after{
+/* .datetime_roll:after{
 	content: "";
   position: absolute;
   left: 0;
@@ -73,9 +73,9 @@
   width: 100%;
   height: 1px;
   background: #ccc;
-}
+} */
 
-.datetime_roll:before{
+/* .datetime_roll:before{
 	content: "";
   position: absolute;
   left: 0;
@@ -84,7 +84,7 @@
   width: 100%;
   height: 1px;
   background: #ccc;
-}
+} */
 
 
 .date_roll>div,
