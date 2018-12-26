@@ -231,6 +231,7 @@ body {
   min-width: 1.6rem;
   min-height: 0.8rem;
   line-height: 0.8rem;
+  border: none;
 }
 .wrap-box .content-box .btn-big{
   min-width: 4rem;
@@ -250,7 +251,7 @@ body {
 }
 
 .wrap-box .content-box .btn-active span{
-  background: #e48041;
+  background: #ED690E;
 }
 
 .wrap-box .content-box .btn::after{
@@ -285,15 +286,15 @@ input:focus{
 }
 
 .loading-box{
-  height: 0.8rem;
+  height: 0.9rem;
   position: relative;
   width: 80%;
   margin: 0 auto 0.4rem;
 
 }
 .loading-box .circle{
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 0.9rem;
+  height: 0.9rem;
   border-radius: 50%;
   float: right;
   background: #fff;
@@ -301,7 +302,7 @@ input:focus{
 .loading-box .progressbar{
   position: absolute;
   left: 0;
-  top: 0.2rem;
+  top: 0.25rem;
   z-index: 1;
   height: 0.4rem;
   width: 96%;
@@ -321,26 +322,26 @@ input:focus{
   right: 0;
   top: 0;
   z-index: 2;
-  height: 0.8rem;
-  width: 0.8rem;
+  height: 0.9rem;
+  width: 0.9rem;
   border-radius: 50%;
   padding: 0.15rem;
 }
 .loading-box .end span{
   display: block;
-  width: 0.48rem;
-  height: 0.48rem;
+  width: 0.6rem;
+  height: 0.6rem;
   border-radius: 50%;
   background: #EDAD00 url('../image/loading.gif') center center no-repeat;
-  background-size: 0.3rem 0.3rem ;
+  background-size: 0.4rem 0.4rem ;
   font-size: 0;
   text-align: center;
-  line-height: 0.48rem;
+  line-height: 0.7rem;
   color: #fff;
 }
 .loading-box .end .loading-end{
   background: #EDAD00 !important;
-  font-size: 9px !important;
+  font-size: 10px !important;
 }
 
 /* common css end */
@@ -381,6 +382,7 @@ input:focus{
   color: #111111;
   letter-spacing: 1.66px;
   line-height: 0.4rem;
+  padding: 0 0.1rem;
 }
 .home-module .info p{
   margin-bottom: 0.6rem;
@@ -415,8 +417,8 @@ input:focus{
 
 /* --- two page --- */
 .gender-module{
-  background: url('../image/gender_bg.png') no-repeat;
-  background-size: 100% 100%;
+  background: url('../image/gender_bg.png') no-repeat center center;
+  background-size: 100% auto;
 }
 
 .gender-module .gender-select{
@@ -444,6 +446,7 @@ input:focus{
 .gender-module .gender-list .gender-item .inp{
   position: absolute;
   left: -1000px;
+  border: none;
 }
 .gender-module .gender-list .gender-item .gender-label{
   display: block;
@@ -519,10 +522,12 @@ input:focus{
   width: 100%;
   display: block;
   padding: 0 0 0 75px;
+  border: none;
 }
 
 .form-module .content-box .local-box .inp{
   padding-left: 85px;
+  border: none;
 }
 
 .form-module .content-box .submit-btn{
@@ -627,8 +632,8 @@ input:focus{
 }
 
 .result-module .content .result-top .chartsContCanvas{
-  width: 50%;
-  height: 3.6rem;
+  width: 52%;
+  height: 4rem;
   margin-top: 0.3rem;
   margin-left: 5%;
 }
@@ -725,4 +730,24 @@ input:focus{
   letter-spacing: 0.05px;
   display: block;
   padding-top: 5px;
+}
+
+.result-module .content-box .result-share-box{
+  position: absolute;
+  right: 0.3rem;
+  bottom: 0;
+  text-align: center;
+}
+
+.result-module .content-box .result-share-box img{
+  width: 64px;
+  height: 64px;
+  display: block;
+}
+.result-module .content-box .result-share-box p{
+  font-size: 12px;
+  color: #111111;
+  letter-spacing: 0.17px;
+  line-height: 18px;
+  padding-bottom: 0.1rem;
 }

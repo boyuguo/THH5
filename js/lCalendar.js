@@ -366,7 +366,7 @@ window.lCalendar = (function() {
 					for (var g = 0; g <= 59; g++) {
 						i += "<div class='tooth'>" + g + "分</div>";
 					}
-					i += "<div class='tooth' style='font-size: 12px;padding: 0.17rem 0;line-height: 14px;'>时间不清楚</div>";
+					i += "<div class='tooth' style='font-size: 12px;margin: 0.05rem 0;'>时间不清楚</div>";
 					time_mm.innerHTML = i;
 					time_mm.style["-webkit-transform"] = 'translate3d(0,' + (8 - mmVal * 2) + 'em,0)';
 					time_mm.setAttribute('top', 8 - mmVal * 2 + 'em');
@@ -649,8 +649,13 @@ window.lCalendar = (function() {
 				time_mm = time_mm > 9 ? time_mm : '0' + time_mm;
 				// 时 分 后面追加 时间不确定项
 				var time_hh_old = time_hh,time_mm_old = time_mm;
-				time_hh = ( time_hh == 24 ? '时间不确定' : time_hh );
-				time_mm = ( time_mm == 60 ? '' : time_mm );
+				if ( time_hh == 24 && time_mm == 60 ) {
+					time_hh = '时间不确定';
+					time_mm = '';
+				}else{
+					time_hh = ( time_hh == 24 ? '时不确定' : time_hh );
+					time_mm = ( time_mm == 60 ? '分不确定' : time_mm );
+				}
 				_self.trigger.value = (date_yy % passY + _self.minY) + "年" + date_mm + "月" + date_dd + "日" + ( time_hh.length  < 2 ? "0" : "") + time_hh + ( time_hh_old != 24 ? '时' : '' ) + time_mm + ( time_mm_old < 60 ? "分" : "") ;
 				closeMobileCalendar(e);
 			}

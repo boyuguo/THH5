@@ -4,6 +4,7 @@
 时间: 2018/09/10 10:20
 结果页状态: 0-保护 1-大腿
  */
+
 // 进度条功能
 // 进度条方法
 function progress (dist, delay, callback) {
@@ -34,9 +35,9 @@ window.onload = () => {
 $( function () {
   // 移动端不支持音频/视频的自动播放
   // see https://stackoverflow.com/questions/13266474/autoplay-audio-on-mobile-safari
-  window.addEventListener('touchstart', function () {
-   document.getElementById('music').play();
-  })
+  // window.addEventListener('touchstart', function () {
+  //  document.getElementById('music').play();
+  // })
 
   //  点击homeID切换下一页
   $('#homeID').on('click', function () {
@@ -102,10 +103,17 @@ $( function () {
     ) {
       document.getElementById('submitBtn').disabled = true;
 
-      if ( dataVal.indexOf('时间不确定') > -1 ) {
+      console.log(dataVal,'this is dataVal');
+
+      if ( dataVal.length == 16 && dataVal.indexOf('时间不确定') > -1 ) {
         dataVal = dataVal.replace('时间不确定','12时0分');
+      } else if ( dataVal.length > 16 && dataVal.slice(-1) == '分' ) {
+        dataVal = dataVal.replace('时不确定','12时');
+      } else if ( dataVal.length > 16 && dataVal.slice(-1) == '定' ) {
+        dataVal = dataVal.replace('分不确定','0分');
       }
 
+      console.log(dataVal,'this is dataVal1');
 
       var strs = ["/","/"," ",":",""];
       dataVal = dataVal.replace(/\D/g,function(){return strs.shift()});
@@ -118,8 +126,9 @@ $( function () {
         addr: localVal
       };
 
+
       $.ajax({
-        url : '/tianhe/public/index.php/api/guard',
+        url : 'http://47.105.190.143:8081/api/guard',
         data: data,
         dataType: 'JSON',
         type: 'post',
@@ -175,7 +184,7 @@ $( function () {
       }
       var cur = resultData[i];
       console.log(resultData, cur, i,' this is resultData');
-      if (i !== 'wealth_status' ) {
+      if (i !== 'wealth_status' && i !== 'user_image' ) {
         arr2018.push( resultData[i].nianjixiongzhi[0]+5 );
         arr2019.push( resultData[i].nianjixiongzhi[1]+5 );
 
@@ -185,7 +194,7 @@ $( function () {
                          + '</li>'
       }
     }
-    resultBottomHtml += '</ul><div class="company-info"><p class="text"><b>天合·易策局开发</b><span>更多惊喜请关注公众号: 易策局</span></p></div>' ;
+    resultBottomHtml += '</ul><div class="company-info"><p class="text"><b>天合·易策局开发</b><span>更多惊喜请关注公众号: 易策局</span></p></div><div class="result-share-box"><img src="../image/result_share.png" /><p>长按保存图片</p> </div>' ;
     $('.result-bottom').html(resultBottomHtml);
 
 
@@ -239,7 +248,7 @@ $( function () {
     		name: '2018',
     		itemStyle: {
                     normal: {
-                        color: '#0763F8'
+                        color: '#458CFF'
                     }
                 },
     	},
@@ -273,7 +282,7 @@ $( function () {
                 {name: '事业', max: 9}
             ],
             shape: 'circle',
-            radius: '60%',
+            radius: '70%',
             splitNumber: 9,
             name: {
                 textStyle: {
@@ -282,7 +291,7 @@ $( function () {
             },
             splitLine: {
                 lineStyle: {
-                    color: 'rgba(0, 0, 0, 1)'
+                    color: '#ccc'
                 }
             },
             splitArea: {
@@ -305,7 +314,7 @@ $( function () {
                 symbol: 'none',
                 areaStyle: {
                     normal: {
-                        opacity: 0.7
+                        opacity: 0.8
                     }
                 }
 

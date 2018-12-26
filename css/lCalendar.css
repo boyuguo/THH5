@@ -69,7 +69,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 8em;
+  top: 1.95rem;
   width: 100%;
   height: 1px;
   background: #ccc;
@@ -80,7 +80,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 8em;
+  bottom: 1.95rem;
   width: 100%;
   height: 1px;
   background: #ccc;
