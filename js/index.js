@@ -329,6 +329,15 @@ $( function () {
     };
 
     myChart.setOption(option);
+
+    setTimeout(function() {
+      html2canvas(document.querySelector("body")).then(canvas => {
+        var image = new Image();
+        image.src = canvas.toDataURL("image/png");
+        image.className = 'result-img';
+        document.body.appendChild(image);
+      });
+    }, 200)
   }
 
 

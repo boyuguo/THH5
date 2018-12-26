@@ -769,3 +769,12 @@ input:focus{
   line-height: 18px;
   padding-bottom: 0.1rem;
 }
+
+.result-img {
+  z-index: 20;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+}
