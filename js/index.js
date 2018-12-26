@@ -5,6 +5,10 @@
 结果页状态: 0-保护 1-大腿
  */
 
+function getQueryStringValue (key) {  
+  return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+}
+
 // 进度条功能
 // 进度条方法
 function progress (dist, delay, callback) {
@@ -122,7 +126,8 @@ $( function () {
         sex: gender,
         data_type: calendarType,
         date: dataVal,
-        addr: localVal
+        addr: localVal,
+        code: getQueryStringValue('code'),
       };
 
 
@@ -216,11 +221,12 @@ $( function () {
         }else if( status == 0 ){
           snowClass = 'none';
         }
+    var user_image = result_json.data.user_image || '../image/logo.png';
 
     resultTopHtml = '<div class="snow-animation-container '+snowClass+' "></div>'
                   + '<div class="result-top-content">'
                   + '<div class="title-box">'
-                  + '<img src="../image/logo.png" alt="" class="user-icon">'
+                  + '<img src=' + user_image + ' alt="" class="user-icon">'
                   + '<p class="title">'
                   + '<b>'+ titleVal +'</b>'
                   + '<span>'+ textVal +'</span>'
