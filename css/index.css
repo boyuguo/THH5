@@ -381,6 +381,29 @@ input:focus{
   border: 2px dashed #7665B1;
   text-align: center;
   padding: 0.4rem 0 0.6rem;
+  position: relative;
+}
+
+.wrap-box .info .number{
+  font-size: 100px;
+  color: #7665B1;
+  letter-spacing: 13px;
+  line-height: 140px;
+  position: absolute;
+  left: 0;
+  top: -1.5rem;
+  font-family:  Arial, Helvetica, sans-serif;
+}
+
+.form-module .info .number{
+  left: -0.4rem;
+  top: -1.3rem;
+}
+
+.form-module .info .number3{
+  left: auto;
+  right: -0.4rem;
+  top: -1.4rem;
 }
 
 
@@ -515,7 +538,7 @@ input:focus{
   background: #FFFFFF;
   border: 1px solid #7665B1;
   padding: 8px;
-  height: 38px;
+  height: 44px;
 }
 .form-module .content-box .input-box .err{
   width: 100%;
@@ -529,8 +552,9 @@ input:focus{
 }
 .form-module .content-box .input-box .label{
   position: absolute;
-  font-size: 14px;
+  top: 12px;
   left: 8px;
+  font-size: 14px;
   color: #111111;
   letter-spacing: 1.5px;
 }
@@ -540,7 +564,7 @@ input:focus{
   display: block;
   padding: 0 0 0 75px;
   border: none;
-  line-height: 20px;
+  line-height: 28px;
 }
 
 .form-module .content-box .local-box .inp{
