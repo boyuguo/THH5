@@ -12,15 +12,6 @@
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="../css/lCalendar.css">
   <link rel="stylesheet" href="../css/address.css">
-  <script>
-    var isWeixin = function () {
-      var ua = navigator.userAgent.toLowerCase();
-      return ua.match(/MicroMessenger/i) == "micromessenger";
-    };
-    if (isWeixin()) {
-      window.location = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx960fcd8fa6e9b9d3&redirect_uri=http://h5.chicv.com&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
-    }
-  </script>
 
 </head>
 <body>
@@ -114,7 +105,7 @@
           <div class="date-box input-box">
             <div class="input-content">
               <label for="dataVal" class="date-label label">选择日期:</label>
-              <input type="text" id="dataVal" class="inp" onfocus="this.blur()" />
+              <input type="text" id="dataVal" readonly class="inp" onfocus="this.blur()" />
             </div>
             <p class="err" id="date-err">必填</p>
           </div>
@@ -126,7 +117,7 @@
           <div class="local-box  input-box">
             <div class="input-content">
               <label for="localVal" class="local-label label">选择出生地:</label>
-              <input type="text" id="localVal" class="inp" onfocus="this.blur()" />
+              <input type="text" id="localVal" readonly class="inp" onfocus="this.blur()" />
             </div>
             <p class="err" id="local-err">必填</p>
           </div>
@@ -182,6 +173,44 @@
 
 
   <script src="../js/jquery-3.1.0.min.js"></script>
+  <script>
+    function getQueryStringValue (key) {
+      return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+    }
+
+    function isWeixin() {
+      var ua = navigator.userAgent.toLowerCase();
+      return ua.match(/MicroMessenger/i) == "micromessenger";
+    };
+
+    function verifyCode(code) {
+      $
+        .ajax({
+          url: `http://47.105.190.143:8081/api/checkopenid?code=${ getQueryStringValue('code') }`,
+          method: 'GET',
+          success: function (data) {
+            if (data.data.openid_status) {
+              window.location = 'http://h5.chicv.com?state=pass';
+            } else {
+              window.location = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx960fcd8fa6e9b9d3&redirect_uri=http://h5.chicv.com&response_type=code&scope=snsapi_userinfo&state=user_info#wechat_redirect'
+            }
+          }
+        })
+    }
+
+    var isInWX = isWeixin();
+    var code = getQueryStringValue('code');
+    var state = getQueryStringValue('state');
+    var needBase = isInWX && !code && state !== 'pass';
+    var needVerify = isInWX && code && state === 'base';
+
+    if (needBase) {
+      window.location = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx960fcd8fa6e9b9d3&redirect_uri=http://h5.chicv.com&response_type=code&scope=snsapi_base&state=base#wechat_redirect'
+    }
+    if (needVerify) {
+      verifyCode(code);
+    }
+  </script>
   <script src="../js/flexible.js"></script> <!-- 自适应 -->
   <script src="../js/echarts.js"></script> <!-- 雷达图 -->
   <script src="../js/lCalendar.js"></script> <!-- 日历插件 -->
