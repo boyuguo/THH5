@@ -189,6 +189,7 @@
           url: `http://47.105.190.143:8081/api/checkopenid?code=${ code }`,
           method: 'GET',
           success: function (data) {
+            console.log(data);
             var result = JSON.parse(data);
             if (result.data.openid_status) {
               window.location = 'http://h5.chicv.com?state=pass';
