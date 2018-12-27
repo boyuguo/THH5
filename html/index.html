@@ -186,10 +186,11 @@
     function verifyCode(code) {
       $
         .ajax({
-          url: `http://47.105.190.143:8081/api/checkopenid?code=${ getQueryStringValue('code') }`,
+          url: `http://47.105.190.143:8081/api/checkopenid?code=${ code }`,
           method: 'GET',
           success: function (data) {
-            if (data.data.openid_status) {
+            var result = JSON.parse(data);
+            if (result.data.openid_status) {
               window.location = 'http://h5.chicv.com?state=pass';
             } else {
               window.location = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx960fcd8fa6e9b9d3&redirect_uri=http://h5.chicv.com&response_type=code&scope=snsapi_userinfo&state=user_info#wechat_redirect'
