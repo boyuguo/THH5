@@ -582,7 +582,7 @@ input:focus{
   position: relative;
 }
 .result-module .content-box .content{
-  height: 94%;
+  height: 100%;
 }
 .result-module .content .result-top{
   padding-top: 0.4rem;
@@ -652,7 +652,7 @@ input:focus{
 .result-module .content .result-top .chartsContCanvas{
   width: 52%;
   height: 4rem;
-  margin-top: 0.3rem;
+  margin-top: 0.2rem;
   margin-left: 5%;
 }
 

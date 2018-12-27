@@ -5,8 +5,8 @@
 结果页状态: 0-保护 1-大腿
  */
 
-function getQueryStringValue (key) {  
-  return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+function getQueryStringValue (key) {
+  return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
 }
 
 // 进度条功能
@@ -262,7 +262,7 @@ $( function () {
     		name: '2019',
     		itemStyle: {
                     normal: {
-                        color: '#8269EA'
+                        color: '#A849A6'
                     }
                 },
     	}
@@ -272,12 +272,14 @@ $( function () {
     var option = {
         legend: {
             icon: 'circle',
-            bottom: 0,
+            bottom: 15,
             data: ['2018', '2019'],
             itemGap: 10,
+            padding: 0,
             textStyle: {
                 color: '#111',
-                fontSize: 12
+                fontSize: 12,
+                lineHeight: 14
             }
         },
         radar: {
@@ -294,6 +296,7 @@ $( function () {
                     color: '#111'
                 }
             },
+            nameGap: 8,
             splitLine: {
                 lineStyle: {
                     color: '#ccc'
